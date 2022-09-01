@@ -1,0 +1,83 @@
+<<ion-header>
+  <ion-toolbar>
+    <ion-row>
+      <ion-img src="../../assets/Team icons/CFL_2016_logo.png" ></ion-img>
+      <ion-title  >Canadian Football league</ion-title>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="listaYears">
+    <ion-list>
+      <ion-item >
+        <ion-select (ionChange)="handleChange($event)" interface="popover"  placeholder="Selecciona un id de usuario" >
+          <ion-select-option value="4">4</ion-select-option>
+          <ion-select-option value="14">14</ion-select-option>
+          <ion-select-option value="24">24</ion-select-option>
+          <ion-select-option value="34">34</ion-select-option>
+          <ion-select-option value="44">44</ion-select-option>
+          <ion-select-option value="54">54</ion-select-option>
+          <ion-select-option value="64">64</ion-select-option>
+          <ion-select-option value="74">74</ion-select-option>
+          <ion-select-option value="84">84</ion-select-option>
+          <ion-select-option value="94">94</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+  </div>
+  
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Hola {{item.nombre}} {{item.apellido}}</ion-card-title>
+    </ion-card-header>
+  </ion-card>
+  
+  <ion-card>
+    <ion-card-content>
+      <ion-label>Estos los partidos del {{equipo.nombre}} esta temporada 2022, tu equipo favorito:</ion-label>
+    </ion-card-content> 
+  </ion-card> 
+  
+  <div class="carta" *ngFor="let datos of datosFiltrados"> 
+    <div class="titulo">
+      <h1  class="ion-text-center" *ngIf="datos.intRound == 500">Pretemporada</h1>
+      <h1  class="ion-text-center" *ngIf="datos.intRound != 500">Semana {{datos.intRound}}</h1>
+    </div>
+  
+    <div class="Juegos" >
+  
+      <ion-row  style="border-bottom: groove" >
+        
+        <ion-col size="3">
+          <ion-label class="fila">Fecha</ion-label>
+          <ion-label class="fila"><br>{{datos.dateEventLocal}}</ion-label>
+        </ion-col>
+        <ion-col >
+          <ion-img src="../../assets/Team icons/{{datos.strAwayTeam}}.png"> </ion-img>
+        </ion-col>
+        <ion-col>
+          <ion-label class="fila" >{{datos.strAwayTeam}}</ion-label>
+        </ion-col>
+        <ion-col >
+          <ion-label  >{{datos.intAwayScore}}</ion-label>
+        </ion-col>
+        <ion-col >
+          <ion-label >@</ion-label>
+        </ion-col>
+        <ion-col >
+          <ion-label >{{datos.intHomeScore}}</ion-label>
+        </ion-col>
+        <ion-col >
+          <ion-label class="fila" >{{datos.strHomeTeam}}</ion-label>
+        </ion-col>
+        <ion-col >
+          <ion-img src="../../assets/Team icons/{{datos.strHomeTeam}}.png"> </ion-img>
+        </ion-col>
+      </ion-row>
+
+    </div>
+  
+  </div>
+  
+</ion-content>
