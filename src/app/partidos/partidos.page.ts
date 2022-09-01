@@ -34,7 +34,7 @@ export class PartidosPage implements OnInit {
     
     this.juegoService.obtenerJuegos().subscribe(res =>{
       this.dataSource = res as any;
-      console.log(this.dataSource.events);
+      
     })
   }  
 }
